@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.users.entity;
+package cn.iocoder.doraemon.scrm.users.entity;
 
 import com.youzan.open.sdk.gen.v3_1_0.model.YouzanScrmCustomerGetResult;
 

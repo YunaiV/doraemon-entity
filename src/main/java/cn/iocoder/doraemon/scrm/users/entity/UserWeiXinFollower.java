@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.users.entity;
+package cn.iocoder.doraemon.scrm.users.entity;
 
 public class UserWeiXinFollower {
 

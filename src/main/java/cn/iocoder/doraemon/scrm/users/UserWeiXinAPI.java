@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.users;
+package cn.iocoder.doraemon.scrm.users;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.*;
 
