@@ -1,9 +1,9 @@
-package cn.iocoder.doraemon.scrm.users;
+package cn.iocoder.doraemon.scrmgroup.customer;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanUserBasicGetResult;
 import com.youzan.open.sdk.gen.v3_1_0.model.YouzanScrmCustomerGetResult;
 
-public interface UserAPI {
+public interface ScrmCustomerAPI {
 
     class Account {
         /**
@@ -16,6 +16,8 @@ public interface UserAPI {
          * FansID：自有粉丝ID
          * Mobile：手机号
          * YouZanAccount：有赞账号
+         *
+         * 本质上，Mobile = YouZanAccount 等价
          */
         private String accountType;
     }
@@ -43,6 +45,8 @@ public interface UserAPI {
 
     /**
      * 客户创建接口
+     *
+     * https://www.youzanyun.com/apilist/detail/group_scrm/user/youzan.scrm.customer.create
      *
      * @param mobile 手机号
      * @param customerCreate 创建客户所需信息 JSON {

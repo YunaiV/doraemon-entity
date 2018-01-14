@@ -1,15 +1,21 @@
-package cn.iocoder.doraemon.scrm.users.entity;
+package cn.iocoder.doraemon.scrmgroup.customer.entity;
 
+import cn.iocoder.doraemon.scrmgroup.users.entity.User;
 import com.youzan.open.sdk.gen.v3_1_0.model.YouzanScrmCustomerGetResult;
 
 import java.util.Date;
 
-public class User {
+public class ScrmCustomer {
 
     /**
      * 用户ID
+     * {@link User}
      */
-    private Long id;
+    private Long userId;
+    /**
+     * 店铺编号
+     */
+    private Integer kdtId;
     /**
      * 姓名
      */
@@ -47,5 +53,10 @@ public class User {
     // TODO openid
     // TODO accountType
     // TODO 或者有个 account 表？
+
+    // todo 芋艿，来源
+    // TODO
+
+
 
 }

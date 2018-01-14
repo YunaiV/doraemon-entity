@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.scrm.users.entity;
+package cn.iocoder.doraemon.scrmgroup.tags;
 
 // todo 芋艿，缺关联表
 public class UserWeiXinFollowerTag {

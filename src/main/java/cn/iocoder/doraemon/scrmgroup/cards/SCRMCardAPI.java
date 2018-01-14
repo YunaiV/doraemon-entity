@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.scrm.cards;
+package cn.iocoder.doraemon.scrmgroup.cards;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.*;
 

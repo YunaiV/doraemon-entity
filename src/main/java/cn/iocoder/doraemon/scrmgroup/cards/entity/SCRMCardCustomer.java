@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.scrm.cards.entity;
+package cn.iocoder.doraemon.scrmgroup.cards.entity;
 
 public class SCRMCardCustomer {
 
