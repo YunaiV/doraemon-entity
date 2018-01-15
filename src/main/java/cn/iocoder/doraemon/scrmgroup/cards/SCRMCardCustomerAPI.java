@@ -32,11 +32,11 @@ public interface SCRMCardCustomerAPI {
      * @param fansId 【三选一】粉丝ID，与 fans_type 同时出现，如果没有写0 mobile/fans_id/open_user_id 三选一传入
      * @param openUserId 【三选一】三方用户ID mobile/fans_id/open_user_id 三选一传入
      * @param mobile 【三选一】手机号，如果没有则写 0 mobile/fans_id/open_user_id 三选一传入
-     * @param id 用户会员卡号，没有则写''，与card_alias任选其一，优先级高于card_alias
+     * @param cardNo 用户会员卡号，没有则写''，与card_alias任选其一，优先级高于card_alias
      * @param cardAlias 商家会员卡唯一标识，没有则写''，与card_no任选其一，优先级低于card_no
      * @return 是否成功
      */
-    Boolean delete(Integer fansType, Integer fansId, String openUserId, String mobile, String id, String cardAlias);
+    Boolean delete(Integer fansType, Integer fansId, String openUserId, String mobile, String cardNo, String cardAlias);
 
     /**
      * 通过用户会员卡号获取会员信息

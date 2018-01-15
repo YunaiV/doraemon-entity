@@ -3,7 +3,7 @@ package cn.iocoder.doraemon.scrmgroup.weixin.entity;
 public class UserWeiXinFollower {
 
     /**
-     * 编号
+     * 粉丝编号
      */
     private Integer id;
     /**
