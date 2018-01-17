@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.itemgroup.item;
+package cn.iocoder.doraemon.itemgroup.item.entity;
 
 import java.util.Date;
 
