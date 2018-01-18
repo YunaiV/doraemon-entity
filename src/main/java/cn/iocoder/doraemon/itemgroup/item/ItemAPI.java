@@ -142,7 +142,6 @@ public interface ItemAPI {
                                                 String q, String banner, String orderBy,
                                                 Integer pageNo, Integer pageSize);
 
-
     /**
      * 获取出售中的商品列表
      *

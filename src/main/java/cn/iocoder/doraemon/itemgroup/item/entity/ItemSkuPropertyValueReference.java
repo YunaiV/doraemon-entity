@@ -2,6 +2,9 @@ package cn.iocoder.doraemon.itemgroup.item.entity;
 
 import java.util.Date;
 
+/**
+ * Item SKU 规格值引用。用于和店铺关联，不同店铺有不同的规格值引用数据。
+ */
 public class ItemSkuPropertyValueReference {
 
     /**

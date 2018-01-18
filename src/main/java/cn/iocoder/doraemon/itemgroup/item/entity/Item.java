@@ -2,12 +2,21 @@ package cn.iocoder.doraemon.itemgroup.item.entity;
 
 import java.util.Date;
 
+/**
+ * 商品
+ */
 public class Item {
 
     /**
      * 编号
      */
     private Integer id;
+    /**
+     * 别名
+     *
+     * 系统生成，作为唯一标识。例如，2fpa62tbmsl9h
+     */
+    private String alias;
     /**
      * 店铺编号
      */
@@ -20,16 +29,6 @@ public class Item {
      * 更新时间
      */
     private Date updateTime;
-    /**
-     * 别名
-     *
-     * 系统生成，作为唯一标识。例如，2fpa62tbmsl9h
-     */
-    private String alias;
-    /**
-     * 排序字段
-     */
-    private Integer order;
     /**
      * 状态
      *
@@ -93,6 +92,13 @@ public class Item {
      * 61：电子卡券（无需物流）
      */
     private Integer itemType;
+    /**
+     * 商品类型
+     *
+     * 0：自营商品
+     * 10：分销商品
+     */
+    private Integer goodsType;
     /**
      * todo 芋艿，
      * 分组列表
@@ -174,6 +180,10 @@ public class Item {
      */
     private Boolean isListing;
     /**
+     * 排序字段
+     */
+    private Integer order;
+    /**
      * 开始出售时间。
      *
      * 没设置则为空
@@ -182,10 +192,22 @@ public class Item {
     /**
      * 商品是否锁定。TODO 芋艿，哪里使用
      *
-     * rue 为已锁定
+     * true 为已锁定
      * false 为未锁定
      */
     private Boolean isLock;
+    /**
+     * 留言表单数组配置
+     *
+     * JSON 字符串 [{
+     *     name: // 表单名，String
+     *     required: // 是否必填，Integer，1-必填；0-选填
+     *     type: // 表单类型，String，枚举：文本格式/数字格式/邮件/日期/时间/身份证号/图片
+     *     multiple: // 是否多行，Integer，1-多行，0-单行
+     *     datetime：// 是否包含日期，用于 `type=时间`
+     * }]
+     */
+    private String messages;
 
     // ========== 其他信息 END ==========
 
@@ -200,26 +222,7 @@ public class Item {
     private Boolean purchaseRightStatus;
 
 
-    /**
-     * todo 芋艿
-     * 商品留言
-     */
-    private String messages;
-
-
-    /**
-     * todo
-     * 酒店扩展信息，按以下格式： { "service_tel_code":"0571",//服务电话区号 "service_tel":"4790043"//服务电话 }
-     */
-    private String hotel_extra;
-    // TODO 芋艿，ItemHotelOpenModel
-
-
-
-
     // TODO 跳转到其他网站购买
-
-    // TODO 芋艿，FenxiaoExtendOpenModel 供货店铺Id 供货商品Id
 
     // TODO 芋艿，ItemVirtualOpenModel
 }

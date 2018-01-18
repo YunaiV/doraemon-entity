@@ -2,6 +2,9 @@ package cn.iocoder.doraemon.itemgroup.item.entity;
 
 import java.util.Date;
 
+/**
+ * Item SKU 规格属性
+ */
 public class ItemSkuProperty {
 
     /**
@@ -9,7 +12,7 @@ public class ItemSkuProperty {
      */
     private Integer id;
     /**
-     * 属性名
+     * 属性文本
      */
     private String name;
     /**

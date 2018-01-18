@@ -12,13 +12,6 @@ public class ItemEtd {
      */
     private Integer id;
     /**
-     * 预售是否开启
-     *
-     * 1：开启；
-     * 2：关闭；
-     */
-    private Integer status;
-    /**
      * 发货类型
      *
      * 0 - xxx 时间开始发货

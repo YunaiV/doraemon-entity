@@ -5,9 +5,17 @@ import java.util.Date;
 public class ItemSku {
 
     /**
-     * sku 编号
+     * 唯一编码，店铺Id 和 商品skuId 组合
+     *
+     * 分销场景下，skuId 多个店铺相同，uniqueCode 不同
      */
-    private Integer id;
+    private String uniqueCode;
+    /**
+     * sku 编号
+     *
+     * 非唯一
+     */
+    private Integer skuId;
     /**
      * 商品编号
      */
@@ -17,30 +25,26 @@ public class ItemSku {
      */
     private Integer shopId;
     /**
-     * 唯一编码，店铺Id 和 商品skuId 组合
-     * <p>
-     * // TODO 芋艿，具体用途是什么。拼接方式，shopId + skuId
+     * 状态
+     *
+     * 1-正常
+     * 2-删除
      */
-    private String uniqueCode;
-    /**
-     * 标题
-     */
-    private String title;
+    private Integer status;
     /**
      * 图片地址
      */
     private String imageURL;
     /**
      * 商品规格
-     * // TODO 芋艿，和文科沟通下，mysql 是怎么存储的
-     * <p>
+     *
      * JSON 格式，[{
-     * kid: // 规格名编号 {@link ItemSkuProperty#id}
-     * k: // 规格名文本 {@link ItemSkuProperty#name}
-     * vid: // 规格值编号 {@link ItemSkuProperty#id}
-     * v: // 规格值文本 {@link ItemSkuProperty#name}
+     *   kid: // 规格名编号 {@link ItemSkuProperty#id}
+     *   k: // 规格名文本 {@link ItemSkuProperty#name}
+     *   vid: // 规格值编号 {@link ItemSkuProperty#id}
+     *   v: // 规格值文本 {@link ItemSkuProperty#name}
      * }]
-     * <p>
+     *
      * 例如  [ { "kid": "20000", "vid": "3275069", "k": "品牌", "v": "盈讯" }, { "kid": "1753146", "vid": "3485013", "k": "型号", "v": "F908" }
      */
     private String properties;
@@ -49,7 +53,7 @@ public class ItemSku {
      */
     private Integer price;
     /**
-     * 属于这个Sku的商品的数量
+     * 库存数量
      */
     private Integer quantity;
     /**
@@ -57,7 +61,7 @@ public class ItemSku {
      */
     private Integer withHoldQuantity;
     /**
-     * 总销量
+     * 销量
      */
     private Integer soldNum;
     /**
