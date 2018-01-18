@@ -53,6 +53,10 @@ public class ItemSku {
      */
     private Integer price;
     /**
+     * 商品货号（商家为商品设置的外部编号）
+     */
+    private String itemNo;
+    /**
      * 库存数量
      */
     private Integer quantity;
