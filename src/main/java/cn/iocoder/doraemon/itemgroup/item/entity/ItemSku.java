@@ -38,14 +38,8 @@ public class ItemSku {
     /**
      * 商品规格
      *
-     * JSON 格式，[{
-     *   kid: // 规格名编号 {@link ItemSkuProperty#id}
-     *   k: // 规格名文本 {@link ItemSkuProperty#name}
-     *   vid: // 规格值编号 {@link ItemSkuProperty#id}
-     *   v: // 规格值文本 {@link ItemSkuProperty#name}
-     * }]
-     *
-     * 例如  [ { "kid": "20000", "vid": "3275069", "k": "品牌", "v": "盈讯" }, { "kid": "1753146", "vid": "3485013", "k": "型号", "v": "F908" }
+     * 格式：kid[0]-vid[0],kid[1]-vid[1]...kid[n]-vid[n]
+     * 例如：20000-3275069,1753146-3485013
      */
     private String properties;
     /**
