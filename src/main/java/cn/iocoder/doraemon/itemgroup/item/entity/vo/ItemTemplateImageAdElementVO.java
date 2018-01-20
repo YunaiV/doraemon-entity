@@ -93,7 +93,7 @@ public class ItemTemplateImageAdElementVO extends AbstractItemTemplateElementVO 
     /**
      * 选项元素数组
      *
-     * JSON 格式，数组，每个元素为 {@link SelectionElementVO} 的实现类字符串
+     * JSON 格式，数组，每个元素为 {@link SelectionElementVO}
      */
     private String subEntrys;
 
