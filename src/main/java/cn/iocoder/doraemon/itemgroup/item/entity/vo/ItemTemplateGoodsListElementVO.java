@@ -1,29 +1,38 @@
 package cn.iocoder.doraemon.itemgroup.item.entity.vo;
 
 /**
- * 商品页面模板商品元素 VO
+ * 商品页面模板商品列表元素 VO
  */
-public class ItemTemplateGoodsElementVO extends AbstractItemTemplateElementVO {
+public class ItemTemplateGoodsListElementVO extends AbstractItemTemplateElementVO {
 
     /**
-     * 商品
+     * 商品列表元素的选项 VO
      */
-    public static class Goods {
+    public static class GoodsTagElementVO extends AbstractItemTemplateElementVO {
+
+        private static final String TYPE = "tag";
 
         /**
-         * 商品编号 {@link cn.iocoder.doraemon.itemgroup.item.entity.Item#id}
+         * 商品分组编号
          */
         private Integer id;
         /**
-         * 商品别名 {@link cn.iocoder.doraemon.itemgroup.item.entity.Item#alias}
+         * 商品分组标题
          */
-        private String alias;
+        private String title;
+        /**
+         * 商品分组访问地址
+         */
+        private String url;
 
-        // todo 其他商品相关冗余字段
     }
 
-    private static final String TYPE = "goods";
+    private static final String TYPE = "goods_list";
 
+    /**
+     * 展示商品分组的商品数量
+     */
+    private Integer goodsNumberType;
     /**
      * 列表样式
      *
@@ -80,9 +89,9 @@ public class ItemTemplateGoodsElementVO extends AbstractItemTemplateElementVO {
      */
     private Integer price;
     /**
-     * 商品数组
+     * 商品分组数组
      *
-     * JSON 格式，数组，每个元素为 {@link Goods}
+     * JSON 格式，数组，每个元素为 {@link GoodsTagElementVO}
      */
     private String goods;
 

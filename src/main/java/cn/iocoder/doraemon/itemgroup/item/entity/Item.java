@@ -50,16 +50,6 @@ public class Item {
      */
     private String summary;
     /**
-     * 商品描述。
-     *
-     * 字数要大于5个字符，小于25000个字符 ，受违禁词控制
-     */
-    private String desc;
-    /**
-     * 商品页模板
-     */
-    private Integer templateId;
-    /**
      * 商品分类的叶子类目编号
      *
      * 有赞——店铺主营类目和商品类目对应表：https://bbs.youzan.com/forum.php?mod=viewthread&tid=25252
