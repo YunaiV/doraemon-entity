@@ -3,7 +3,7 @@ package cn.iocoder.doraemon.itemgroup.item.entity;
 import java.util.Date;
 
 /**
- * Item SKU 规格值引用。用于和店铺关联，不同店铺有不同的规格值引用数据。
+ * Item 分组引用。一个商品可以有多个商品分组。
  */
 public class ItemTagReference {
 
