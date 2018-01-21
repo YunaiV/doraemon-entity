@@ -1,7 +1,4 @@
-package cn.iocoder.doraemon.itemgroup.item.entity;
-
-import cn.iocoder.doraemon.itemgroup.item.entity.vo.AbstractItemTemplateElementVO;
-import cn.iocoder.doraemon.itemgroup.item.entity.vo.ItemTemplateTextNavElementVO;
+package cn.iocoder.doraemon.itemgroup.item.entity.vo;
 
 /**
  * 商品页面模板图片导航元素 VO
