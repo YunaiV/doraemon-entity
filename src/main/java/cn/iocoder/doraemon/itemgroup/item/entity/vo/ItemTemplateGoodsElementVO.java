@@ -19,7 +19,7 @@ public class ItemTemplateGoodsElementVO extends AbstractItemTemplateElementVO {
          */
         private String alias;
 
-        // todo 其他商品相关冗余字段
+        //  其他商品相关冗余字段
     }
 
     private static final String TYPE = "goods";
