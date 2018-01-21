@@ -4,6 +4,14 @@ import com.youzan.open.sdk.gen.v3_0_0.model.YouzanItemTemplateListSearchResult;
 
 public interface ItemTemplateAPI {
 
+    // 添加模板
+
+    // 修改模板
+
+    // 删除模板
+
+    // 获得单条模板
+
     /**
      * 查询店铺下所有的详情模板列表
      *
