@@ -25,6 +25,7 @@ public class ItemTemplateGoodsTagsElementVO extends AbstractItemTemplateElementV
          */
         private String url;
 
+        //  其他商品分组相关冗余字段
     }
 
     private static final String TYPE = "tags";

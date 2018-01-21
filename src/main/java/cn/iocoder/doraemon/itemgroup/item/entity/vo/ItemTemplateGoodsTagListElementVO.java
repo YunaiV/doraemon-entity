@@ -29,6 +29,7 @@ public class ItemTemplateGoodsTagListElementVO {
          */
         private Integer goodsNumber;
 
+        //  其他商品分组相关冗余字段
     }
 
     private static final String TYPE = "tag_list";
