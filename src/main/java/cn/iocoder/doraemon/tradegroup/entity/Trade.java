@@ -2,19 +2,34 @@ package cn.iocoder.doraemon.tradegroup.entity;
 
 import java.util.Date;
 
+/**
+ * 交易
+ */
 public class Trade {
+
+    // ========= 基础字段 BEGIN =========
 
     /**
      * 交易编号
      *
-     * 唯一 TODO 芋艿，生成规则
+     * 唯一
+     */
+    private Long id;
+    /**
+     * 交易号
+     *
+     * 唯一，例如：E20180125232933007700006
      */
     private String tid;
+    /**
+     * 店铺编号
+     */
+    private Integer shopId;
     /**
      * 订单类型
      *
      * 0：FIXED （一口价）
-     * 1：GIFT （送礼）
+     * 1：GIFT （送礼） // TODO 子订单
      * 2：BULK_PURCHASE（来自分销商的采购）
      * 3：PRESENT （赠品领取）
      * 4：GROUP （拼团订单）
@@ -28,52 +43,53 @@ public class Trade {
     /**
      * 交易主状态。
      *
-     * 10：TRADE_NO_CREATE_PAY (没有创建支付交易) TODO 芋艿，
-     * 20：WAIT_BUYER_PAY (等待买家付款)
-     * 21：WAIT_PAY_RETURN (等待支付确认) TODO 芋艿，
-     * 22：WAIT_GROUP（等待成团，即：买家已付款，等待成团） TODO 芋艿，
-     * 30：WAIT_SELLER_SEND_GOODS (等待卖家发货，即：买家已付款)
-     * 40：WAIT_BUYER_CONFIRM_GOODS (等待买家确认收货，即：卖家已发货)
-     * 50：TRADE_BUYER_SIGNED (买家已签收，即：交易已完成)
-     * 60：TRADE_CLOSED (付款以后用户退款成功或者付款超时或商家取消，即：交易已关闭)
+     * TODO 芋艿：TRADE_NO_CREATE_PAY (没有创建支付交易)
+     * 3：WAIT_BUYER_PAY (等待买家付款)
+     * TODO 芋艿：WAIT_PAY_RETURN (等待支付确认)
+     * TODO 芋艿：WAIT_GROUP（等待成团，即：买家已付款，等待成团）
+     * 5：WAIT_SELLER_SEND_GOODS (等待卖家发货，即：买家已付款)
+     * 6：WAIT_BUYER_CONFIRM_GOODS (等待买家确认收货，即：卖家已发货)
+     * 100：TRADE_BUYER_SIGNED (买家已签收，即：交易已完成)
+     * 99：TRADE_CLOSED (付款以后用户退款成功或者付款超时或商家取消，即：交易已关闭)
      */
-    private String status;
+    private Integer status;
     /**
      * 交易创建时间
      */
     private Date createTime;
     /**
      * 交易更新时间。
-     * <p>
+     *
      * 当交易的：状态改变、备注更改、星标更改 等情况下都会刷新更新时间
      */
     private Date updateTime;
+    /**
+     * 关闭类型
+     *
+     * 1-超时未支付
+     * 2-退款关闭
+     * 4-买家取消
+     * 15-已通过货到付款交易
+     * ... 可能还有其他关闭原因
+     */
+    private Integer closeType;
+    /**
+     * 关闭时间
+     */
+    private Date closeTime;
 
-    // ========= 价格信息 BEGIN ========= // TODO 整体计算下
-    /**
-     * 运费。单位：分
-     */
-    private Integer postFee;
-    /**
-     * 商品总价（商品价格乘以数量的总金额）。单位：分
-     */
-    private Integer totalFee;
-    /**
-     * 交易完成后退款的金额。单位：分
-     */
-    private Integer refundedFee;
-    /**
-     * 交易优惠金额（不包含交易明细中的优惠金额）。单位：分
-     */
-    private Integer discountFee;
-    /**
-     * 实付金额。单位：分
-     */
-    private Integer payment;
-    // ========= 价格信息 END =========
+    // ========= 基础字段 END =========
 
     // ========= 买家信息 BEGIN =========
-
+//    @JsonProperty(value = "fans_info")
+//    /**
+//     * 用户信息
+//     */
+//    private YouzanTradeGetResult.FansInfo fansInfo;
+    //    /**
+//     * 三方APP用户id
+//     */
+//    private String outerUserId;
     /**
      * 买家购买附言
      */
@@ -136,31 +152,31 @@ public class Trade {
     // ========= 商品信息 BEGIN =========
     /**
      * 商品购买数量。
-     * <p>
+     *
      * 当一个 trade 对应多个 order 的时候，值为所有商品购买数量之和
      */
     private Integer num;
     /**
      * 商品数字编号。
-     * <p>
+     *
      * 当一个trade对应多个order的时候，值为第一个交易明细中的商品的编号
      */
     private Integer itemId;
     /**
      * 商品价格，单位：分。
-     * <p>
+     *
      * 当一个trade对应多个order的时候，值为第一个交易明细中的商品的价格
      */
     private Integer price;
     /**
      * 商品主图片地址。
-     * <p>
+     *
      * 当一个trade对应多个order的时候，值为第一个交易明细中的商品的图片地址
      */
     private String picPath;
     /**
      * 交易标题。
-     * <p>
+     *
      * 以首个商品标题作为此标题的值
      */
     private String title;
@@ -195,7 +211,9 @@ public class Trade {
     private Date payTime;
     /**
      * TODO 芋艿
-     * 支付类型。取值范围：
+     * 支付类型。
+     *
+     * 取值范围：
      * WEIXIN (微信自有支付)
      * WEIXIN_DAIXIAO (微信代销支付)
      * ALIPAY (支付宝支付)
@@ -224,6 +242,56 @@ public class Trade {
     private String transactionTid;
     // ========= 支付信息 END =========
 
+    // ========= 价格信息 BEGIN =========
+    /**
+     * 运费。单位：分
+     */
+    private Integer postFee;
+    /**
+     * 商品总价（商品价格乘以数量的总金额）。单位：分
+     */
+    private Integer totalFee;
+    /**
+     * 交易完成后退款的金额。单位：分
+     */
+    private Integer refundedFee;
+    /**
+     * 交易优惠金额（不包含交易明细中的优惠金额）。单位：分
+     *
+     * 【不包括】例如，购买的商品参加限制折扣活动 https://help.youzan.com/qa#/menu/2189/detail/919?_k=00rukd
+     * 【包括】】另外，购买的商品使用优惠劵 https://help.youzan.com/qa#/menu/2185/detail/915?_k=lih1k9
+     */
+    private Integer discountFee;
+    /**
+     * 实付金额。单位：分
+     */
+    private Integer payment;
+    // ========= 价格信息 END =========
+
+    //    @JsonProperty(value = "coupon_details")
+//    /**
+//     * 订单中使用到的卡券的数据结构
+//     */
+//    private YouzanTradeGetResult.UmpTradeCoupon[] couponDetails;
+//    @JsonProperty(value = "promotion_details")
+//    /**
+//     * 订单中使用到的优惠活动的数据结构
+//     */
+//    private YouzanTradeGetResult.TradePromotion[] promotionDetails;
+
+
+    //    /**
+//     * 发票抬头
+//     */
+//    private String invoiceTitle;
+
+    //    @JsonProperty(value = "adjust_fee")
+//    /**
+//     * 改价信息
+//     */
+//    private YouzanTradeGetResult.AdjustFee adjustFee;
+
+
 //    /**
 //     * 交易明细数据结构
 //     */
@@ -233,31 +301,15 @@ public class Trade {
 //     * 到店自提详情
 //     */
 //    private YouzanTradeGetResult.TradeFetch fetchDetail;
-//    @JsonProperty(value = "coupon_details")
-//    /**
-//     * 订单中使用到的卡券的数据结构
-//     */
-//    private YouzanTradeGetResult.UmpTradeCoupon[] couponDetails;
-//    @JsonProperty(value = "fans_info")
-//    /**
-//     * 用户信息
-//     */
-//    private YouzanTradeGetResult.FansInfo fansInfo;
+
+
 //    @JsonProperty(value = "hotel_info")
 //    /**
 //     * 酒店入住信息
 //     */
 //    private YouzanTradeGetResult.HotelInfo hotelInfo;
-//    @JsonProperty(value = "promotion_details")
-//    /**
-//     * 订单中使用到的优惠活动的数据结构
-//     */
-//    private YouzanTradeGetResult.TradePromotion[] promotionDetails;
-//    @JsonProperty(value = "adjust_fee")
-//    /**
-//     * 改价信息
-//     */
-//    private YouzanTradeGetResult.AdjustFee adjustFee;
+
+
 //    @JsonProperty(value = "sub_trades")
 //    /**
 //     * 交易数据结构
@@ -291,10 +343,8 @@ public class Trade {
 //     */
 //    private Long handled;
 //    @JsonProperty(value = "outer_user_id")
-//    /**
-//     * 三方APP用户id
-//     */
-//    private String outerUserId;
+
+
 //    @JsonProperty(value = "shop_id")
 //    /**
 //     * 多门店订单的门店id 非多门店订单则默认为0
@@ -356,14 +406,5 @@ public class Trade {
 //     */
 //    private Float boxPrice;
 //    @JsonProperty(value = "invoice_title")
-//    /**
-//     * 发票抬头
-//     */
-//    private String invoiceTitle;
-//    @JsonProperty(value = "status_str")
-//    /**
-//     * 订单状态描述:
-//     待付款,待发货,待成团,待接单,已接单,已发货,已完成,已关闭
-//     */
-//    private String statusStr;
+
 }
