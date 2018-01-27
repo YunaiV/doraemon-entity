@@ -12,21 +12,15 @@ public class Trade {
     /**
      * 交易编号
      *
-     * 唯一
-     */
-    private Long id;
-    /**
-     * 交易号
-     *
      * 唯一，例如：E20180125232933007700006
      */
-    private String tid;
+    private String id;
     /**
      * 店铺编号
      */
     private Integer shopId;
     /**
-     * 订单类型
+     * 交易类型
      *
      * 0：FIXED （一口价）
      * 1：GIFT （送礼） // TODO 子订单
@@ -81,6 +75,10 @@ public class Trade {
     // ========= 基础字段 END =========
 
     // ========= 买家信息 BEGIN =========
+    /**
+     * 买家用户编号
+     */
+    private Integer buyerId;
 //    @JsonProperty(value = "fans_info")
 //    /**
 //     * 用户信息
@@ -98,7 +96,12 @@ public class Trade {
     // ========= 买家信息 END =========
 
     // ========= 收货人 && 物流信息 BEGIN =========
-    // TODO 芋艿，收货人地址编号
+    /**
+     * 收货人的地址编号
+     *
+     * 当无需物流时，该字段为零
+     */
+    private Integer receiverAddressId;
     /**
      * 收货人的姓名
      */
@@ -117,13 +120,21 @@ public class Trade {
     private String receiverZip;
     /**
      * 创建交易时的物流方式。
-     * // TODO 芋艿，
+     *
      * 取值范围：
-     * express（快递），
-     * fetch（到店自提），
-     * local（同城配送）
+     * 1：express（快递）
+     * 2：fetch（到店自提）
+     * 3：local（同城配送）
      */
-    private String shippingType;
+    private Integer shippingType;
+    /**
+     * 卖家发货时间
+     */
+    private Date consignTime;
+    /**
+     * 买家签收时间
+     */
+    private Date signTime;
 
     // ========= 收货人信息 END =========
 
@@ -134,19 +145,11 @@ public class Trade {
     private String tradeMemo;
     /**
      * 卖家备注星标。
-     * <p>
+     *
      * 取值范围 1、2、3、4、5；
      * 如果为0，表示没有备注星标
      */
     private Integer sellerFlag;
-    /**
-     * 卖家发货时间
-     */
-    private Date consignTime;
-    /**
-     * 买家签收时间
-     */
-    private Date signTime;
     // ========= 卖家信息 END =========
 
     // ========= 商品信息 BEGIN =========
@@ -201,7 +204,7 @@ public class Trade {
      * FULL_REFUNDED（已全额退款）<br>
      * FULL_REFUND_FAILED（全额退款失败）<br>
      */
-    private String refundState;
+    private String refundStatus;
     // ========= 退款维权 END =========
 
     // ========= 支付信息 BEGIN =========
@@ -210,63 +213,39 @@ public class Trade {
      */
     private Date payTime;
     /**
-     * TODO 芋艿
      * 支付类型。
      *
      * 取值范围：
-     * WEIXIN (微信自有支付)
-     * WEIXIN_DAIXIAO (微信代销支付)
-     * ALIPAY (支付宝支付)
-     * BANKCARDPAY (银行卡支付)
-     * PEERPAY (代付)
-     * CODPAY (货到付款)
-     * BAIDUPAY (百度钱包支付)
-     * PRESENTTAKE (直接领取赠品)
-     * COUPONPAY（优惠券/码全额抵扣)
-     * BULKPURCHASE（来自分销商的采购)
-     * MERGEDPAY (合并付货款)
-     * ECARD（有赞E卡支付)
-     * PREPAIDCARD (储值卡支付)
-     * MARKPAY （标记支付）
-     * OFCASH (现金支付)
+     * 1-WEIXIN (微信自有支付)
+     * 2-WEIXIN_DAIXIAO (微信代销支付)
+     * 3-ALIPAY (支付宝支付)
+     * 4-BANKCARDPAY (银行卡支付)
+     * 5-PEERPAY (代付)
+     * 6-CODPAY (货到付款)
+     * 7-BAIDUPAY (百度钱包支付)
+     * 8-PRESENTTAKE (直接领取赠品)
+     * 9-COUPONPAY（优惠券/码全额抵扣)
+     * 10-BULKPURCHASE（来自分销商的采购)
+     * 11-MERGEDPAY (合并付货款)
+     * 12-ECARD（有赞E卡支付)
+     * 13-PREPAIDCARD (储值卡支付)
+     * 14-MARKPAY （标记支付）
+     * 15-OFCASH (现金支付)
      */
-    private String payType;
+    private Integer payType;
     /**
-     * // TODO 芋艿，稍后整理
-     * 外部交易编号。比如，如果支付方式是微信支付，就是财付通的交易单号
+     * 外部交易编号。
+     *
+     * 比如，如果支付方式是微信支付，就是财付通的交易单号
      */
     private String outerTid;
     /**
-     * 支付流水号 TODO 芋艿，稍后整理
+     * 支付流水号（支付单号）
      */
     private String transactionTid;
     // ========= 支付信息 END =========
 
-    // ========= 价格信息 BEGIN =========
-    /**
-     * 运费。单位：分
-     */
-    private Integer postFee;
-    /**
-     * 商品总价（商品价格乘以数量的总金额）。单位：分
-     */
-    private Integer totalFee;
-    /**
-     * 交易完成后退款的金额。单位：分
-     */
-    private Integer refundedFee;
-    /**
-     * 交易优惠金额（不包含交易明细中的优惠金额）。单位：分
-     *
-     * 【不包括】例如，购买的商品参加限制折扣活动 https://help.youzan.com/qa#/menu/2189/detail/919?_k=00rukd
-     * 【包括】】另外，购买的商品使用优惠劵 https://help.youzan.com/qa#/menu/2185/detail/915?_k=lih1k9
-     */
-    private Integer discountFee;
-    /**
-     * 实付金额。单位：分
-     */
-    private Integer payment;
-    // ========= 价格信息 END =========
+    // ========= 优惠信息 BEGIN =========
 
     //    @JsonProperty(value = "coupon_details")
 //    /**
@@ -279,17 +258,43 @@ public class Trade {
 //     */
 //    private YouzanTradeGetResult.TradePromotion[] promotionDetails;
 
+    // ========= 优惠信息 END =========
+
+    // ========= 价格信息 BEGIN =========
+    /**
+     * 商品总价（商品价格乘以数量的总金额）。单位：分
+     */
+    private Integer totalFee;
+    /**
+     * 运费。单位：分
+     */
+    private Integer postFee;
+    /**
+     * 交易优惠金额（不包含交易明细中的优惠金额）。单位：分
+     *
+     * 【不包括】例如，购买的商品参加限制折扣活动 https://help.youzan.com/qa#/menu/2189/detail/919?_k=00rukd
+     * 【包括】】另外，购买的商品使用优惠劵 https://help.youzan.com/qa#/menu/2185/detail/915?_k=lih1k9
+     */
+    private Integer discountFee;
+    /**
+     * 实付金额。单位：分
+     */
+    private Integer payment;
+    /**
+     * 交易完成后退款的金额。单位：分
+     */
+    private Integer refundedFee;
+    // ========= 价格信息 END =========
+
+
+
 
     //    /**
 //     * 发票抬头
 //     */
 //    private String invoiceTitle;
 
-    //    @JsonProperty(value = "adjust_fee")
-//    /**
-//     * 改价信息
-//     */
-//    private YouzanTradeGetResult.AdjustFee adjustFee;
+
 
 
 //    /**
@@ -316,7 +321,7 @@ public class Trade {
 //     */
 //    private YouzanTradeGetResult.TradeDetailV2[] subTrades;
 //    @JsonProperty(value = "relation_type")
-//    /**
+//    /** TODO 芋艿，等分销
 //     * 分销/采购单:source:采购单;fenxiao:分销单 空串则为非分销/采购单
 //     */
 //    private String relationType;
