@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup;
+package cn.iocoder.doraemon.tradegroup.trade;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.*;
 

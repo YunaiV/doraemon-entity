@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup.entity;
+package cn.iocoder.doraemon.tradegroup.trade.entity;
 
 import java.util.Date;
 
