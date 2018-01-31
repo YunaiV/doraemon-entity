@@ -2,6 +2,9 @@ package cn.iocoder.doraemon.tradegroup.logistics.entity;
 
 import java.util.Date;
 
+/**
+ * 交易发货快递订单
+ */
 public class TradeDeliveryExpressOrder {
 
     /**
@@ -17,7 +20,7 @@ public class TradeDeliveryExpressOrder {
      */
     private String nu;
     /**
-     *
+     * 快递公司编号
      */
     private Integer expressId;
     /**
