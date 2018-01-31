@@ -287,6 +287,10 @@ public class Trade {
     // ========= 价格信息 END =========
 
 
+//    /**
+//     * 到店自提详情
+//     */
+//    private YouzanTradeGetResult.TradeFetch fetchDetail;
 
 
     //    /**
@@ -302,10 +306,7 @@ public class Trade {
 //     */
 //    private YouzanTradeGetResult.TradeOrderV2[] orders;
 //    @JsonProperty(value = "fetch_detail")
-//    /**
-//     * 到店自提详情
-//     */
-//    private YouzanTradeGetResult.TradeFetch fetchDetail;
+
 
 
 //    @JsonProperty(value = "hotel_info")
