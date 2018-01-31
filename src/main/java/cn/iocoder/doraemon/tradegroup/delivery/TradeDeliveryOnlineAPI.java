@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup.logistics;
+package cn.iocoder.doraemon.tradegroup.delivery;
 
 /**
  * 交易发货核心 API

@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup.logistics.entity;
+package cn.iocoder.doraemon.tradegroup.delivery.entity;
 
 import java.util.Date;
 

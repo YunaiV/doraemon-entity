@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup.logistics.entity;
+package cn.iocoder.doraemon.tradegroup.delivery.entity;
 
 /**
  * 快递公司，例如圆通，申通等等。

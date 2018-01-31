@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.tradegroup.logistics;
+package cn.iocoder.doraemon.tradegroup.delivery;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanLogisticsSettingGetResult;
 
