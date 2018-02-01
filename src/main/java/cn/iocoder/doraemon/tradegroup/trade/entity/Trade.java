@@ -135,6 +135,22 @@ public class Trade {
      * 买家签收时间
      */
     private Date signTime;
+    /**
+     * 收货地址的纬度
+     */
+    private Double receiverLat;
+    /**
+     * 收货地址的经度
+     */
+    private Double receiverLng;
+    /**
+     * 同城送订单送达开始时间
+     */
+    private Date deliveryStartTime;
+    /**
+     * 同城送订单送达结束时间
+     */
+    private Date deliveryEndTime;
 
     // ========= 收货人信息 END =========
 
@@ -381,11 +397,9 @@ public class Trade {
 //     * 收银台订单的二维码id号
 //     */
 //    private Long qrId;
-//    @JsonProperty(value = "delivery_time_display")
-//    /**
-//     * 同城送订单送达时间
-//     */
-//    private String deliveryTimeDisplay;
+
+
+
 //    @JsonProperty(value = "id_card_number")
 //    /**
 //     * 海淘订单身份证信息
@@ -396,17 +410,11 @@ public class Trade {
 //     * 周期购信息
 //     */
 //    private YouzanTradeGetResult.TradePeriodBuy periodOrderDetail;
-//    @JsonProperty(value = "lat")
-//    /**
-//     * 纬度
-//     */
-//    private String lat;
-//    @JsonProperty(value = "lng")
-//    /**
-//     * 经度
-//     */
-//    private String lng;
+
+
+
 //    @JsonProperty(value = "box_price")
+
 //    /**
 //     * 餐盒费
 //     */
