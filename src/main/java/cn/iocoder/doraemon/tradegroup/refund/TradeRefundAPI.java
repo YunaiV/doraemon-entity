@@ -1,5 +1,6 @@
 package cn.iocoder.doraemon.tradegroup.refund;
 
+import cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund;
 import com.youzan.open.sdk.gen.v3_0_0.model.*;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_refund/youzan.trade.refund.modify
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @param refundFee 退款金额
      * @param returnItem 是否退货 false(仅退款) true(退货退款)
      * @param reason 退款原因，原因列表地址：https://www.youzanyun.com/docs/guide/faq/699
@@ -65,7 +66,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_refund/youzan.trade.refund.close
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @return 是否成功
      */
     Boolean close(String refundId, Integer version);
@@ -76,7 +77,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_refund/youzan.trade.refund.intervene
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @param remark 申请理由
      * @return 是否成功
      */
@@ -90,7 +91,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.refund.agree
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @return 是否成功
      */
     Boolean agress(String refundId, Integer version);
@@ -101,7 +102,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.refund.refuse
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @return 是否成功
      */
     Boolean refuse(String refundId, Integer version);
@@ -124,7 +125,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_refund/youzan.trade.returngoods.fill
      *
      * @param refundId 退款ID
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @param expressId 物流公司编号
      * @param nu 物流运单号
      * @return 是否成功
@@ -139,7 +140,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.agree
      *
      * @param refundId 退款编号
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @param name 收件人（卖家）名
      * @param mobile 收件人（卖家）手机号
      * @param tel 收件人（卖家）座机
@@ -157,7 +158,7 @@ public interface TradeRefundAPI {
      * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.refuse
      *
      * @param refundId 退款编号
-     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param version 版本号，见 {@link TradeRefund#version}
      * @param remark 说明
      * @return 是否成功
      */

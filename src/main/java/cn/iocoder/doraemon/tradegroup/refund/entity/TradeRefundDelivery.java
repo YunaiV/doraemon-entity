@@ -53,4 +53,5 @@ public class TradeRefundDelivery {
      * 图片举证数组，以逗号分隔
      */
     private String images;
+
 }

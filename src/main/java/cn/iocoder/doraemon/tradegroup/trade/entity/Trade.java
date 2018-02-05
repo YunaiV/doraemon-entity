@@ -176,6 +176,12 @@ public class Trade {
      */
     private Integer num;
     /**
+     * 商品购买种类
+     *
+     * 当一个 trade 对应多个 order 的时候，值为 order 的数量
+     */
+    private Integer kind;
+    /**
      * 商品数字编号。
      *
      * 当一个trade对应多个order的时候，值为第一个交易明细中的商品的编号
@@ -203,24 +209,36 @@ public class Trade {
 
     // ========= 退款维权 BEGIN =========
     /**
-     * // TODO 芋艿，啥？
-     * 交易维权状态。<br>
-     * 0 无维权，1 顾客发起维权，2 顾客拒绝商家的处理结果，3 顾客接受商家的处理结果，9 商家正在处理,101 维权处理中,110 维权结束。<br>
+     * 交易维权状态。
+     *
+     * 0 无维权，
+     * 1 顾客发起维权，
+     * 2 顾客拒绝商家的处理结果，
+     * 3 顾客接受商家的处理结果，
+     * 9 商家正在处理；
+     *
+     * 101 维权处理中,
+     * 110 维权结束；
+     *
      * 备注：1到10的状态码是微信维权状态码，100以上的状态码是有赞维权状态码
      */
-    private Long feedback;
+    private Integer feedback;
     /**
-     * * // TODO 芋艿，啥？
-     * 退款状态。取值范围：<br>
-     * NO_REFUND（无退款）<br>
-     * PARTIAL_REFUNDING（部分退款中）<br>
-     * PARTIAL_REFUNDED（已部分退款）<br>
-     * PARTIAL_REFUND_FAILED（部分退款失败）<br>
-     * FULL_REFUNDING（全额退款中）<br>
-     * FULL_REFUNDED（已全额退款）<br>
-     * FULL_REFUND_FAILED（全额退款失败）<br>
+     * 处于交易维权状态的订单数
      */
-    private String refundStatus;
+    private Integer feedbackNum;
+    /**
+     * 退款状态。
+     *
+     * 0 - NO_REFUND（无退款）
+     * 1 - PARTIAL_REFUNDING（部分退款中）
+     * 2 - PARTIAL_REFUNDED（已部分退款）
+     * 3 - PARTIAL_REFUND_FAILED（部分退款失败）
+     * 11 - FULL_REFUNDING（全额退款中）
+     * 12 - FULL_REFUNDED（已全额退款）
+     * 13 - FULL_REFUND_FAILED（全额退款失败）
+     */
+    private Integer refundStatus;
     // ========= 退款维权 END =========
 
     // ========= 支付信息 BEGIN =========
