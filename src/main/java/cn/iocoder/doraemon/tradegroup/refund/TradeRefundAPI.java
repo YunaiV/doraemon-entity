@@ -1,9 +1,8 @@
 package cn.iocoder.doraemon.tradegroup.refund;
 
-import com.youzan.open.sdk.gen.v3_0_0.model.YouzanTradeRefundApplyResult;
-import com.youzan.open.sdk.gen.v3_0_0.model.YouzanTradeRefundConditionGetResult;
-import com.youzan.open.sdk.gen.v3_0_0.model.YouzanTradeRefundGetResult;
-import com.youzan.open.sdk.gen.v3_0_0.model.YouzanTradeRefundModifyResult;
+import com.youzan.open.sdk.gen.v3_0_0.model.*;
+
+import java.util.List;
 
 /**
  * TODO
@@ -134,14 +133,46 @@ public interface TradeRefundAPI {
 
     // ======== 退货（卖家） BEGIN ========
 
+    /**
+     * 商家同意退货
+     *
+     * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.agree
+     *
+     * @param refundId 退款编号
+     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param name 收件人（卖家）名
+     * @param mobile 收件人（卖家）手机号
+     * @param tel 收件人（卖家）座机
+     * @param regionId 收件人（卖家）收获地区编号
+     * @param address 收件人（卖家）收获地址
+     * @param remark 说明
+     * @return 是否成功
+     */
+    YouzanTradeRefundAgreeResult agree(String refundId, Integer version, String name, String mobile, String tel,
+                                       Integer regionId, String address, String remark);
 
-    // TODO https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.agree
-
-
-    // TODO https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.refuse
+    /**
+     * 商家拒绝退货
+     *
+     * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.returngoods.refuse
+     *
+     * @param refundId 退款编号
+     * @param version 版本号，见 {@link cn.iocoder.doraemon.tradegroup.refund.entity.TradeRefund#version}
+     * @param remark 说明
+     * @return 是否成功
+     */
+    YouzanTradeRefundRefuseResult refuse(String refundId, Integer version, String remark);
 
     // ======== 消息（卖家） BEGIN ========
 
-//   TODO  https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.refund.messages.get
+    /**
+     * 查看退款操作信息数组
+     *
+     * https://www.youzanyun.com/apilist/detail/group_trade/trade_advanced/youzan.trade.refund.messages.get
+     *
+     * @param refundId 退款编号
+     * @return 退款操作信息数组
+     */
+    List<YouzanTradeRefundMessagesGetResult.TradeRefundMessage> messageGets(String refundId);
 
 }
