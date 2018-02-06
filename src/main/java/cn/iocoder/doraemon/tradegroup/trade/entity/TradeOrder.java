@@ -75,22 +75,35 @@ public class TradeOrder {
      * 交易明细中买家留言的数据结构 {@link cn.iocoder.doraemon.itemgroup.item.entity.Item#messages}
      */
     private String buyerMessages;
-    /**
-     * 是否允许发货  1 可以发货 0 不能发货
-     */
-    private Boolean allowSend;
+
+    // ========= 商品信息 END =========
 
     // TODO snapKey
 
-    // ========= 商品信息 END =========
+    // ======= 物流信息 BEGIN =======
+
+    /**
+     * 是否允许发货
+     */
+    private Boolean allowSend;
+    /**
+     * 是否已经发货
+     */
+    private Boolean isSend;
+
+    // ======= 物流信息 END =======
+
 
     // ========= 退款维权 BEGIN =========
 
     /**
      * 商品退款状态
-     * TODO
+     *
+     * 0 - 无退款
+     * 1 - 部分退款
+     * 11 - 全部退款
      */
-    private String refundStatus;
+    private Integer refundStatus;
     /**
      * 退款id
      */
