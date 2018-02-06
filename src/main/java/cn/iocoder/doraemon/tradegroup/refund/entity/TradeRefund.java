@@ -95,6 +95,14 @@ public class TradeRefund {
      */
     private Integer refundFee;
     /**
+     * 申请退款人的手机号码
+     */
+    private String mobile;
+    /**
+     * 图片举证数组，以逗号分隔
+     */
+    private String images;
+    /**
      * 退款申请时间
      */
     private Date createTime;
@@ -107,6 +115,6 @@ public class TradeRefund {
      *
      * 解决并发修改，防止数据不一致。
      */
-    private Integer version;
+    private Long version;
 
 }
