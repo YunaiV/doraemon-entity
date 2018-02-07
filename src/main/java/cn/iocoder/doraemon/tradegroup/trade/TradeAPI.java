@@ -7,6 +7,8 @@ import com.youzan.open.sdk.gen.v3_0_0.model.*;
  */
 public interface TradeAPI {
 
+    // ======== 买家 BEGIN ========
+
     /**
      * 下单入口，获得结算页链接
      *
@@ -28,6 +30,36 @@ public interface TradeAPI {
     YouzanTradeBillGoodsUrlGetResult getBillItemsURL(YouzanTradeBillGoodsUrlGetParams params);
 
     /**
+     * 买家取消订单
+     *
+     * @param tid 交易编号
+     * @return 是否成功
+     */
+    Boolean updateClose(String tid);
+
+    /**
+     * 订单延长收货接口
+     *
+     * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_trade/youzan.trade.later.receive.update
+     *
+     * @param tid 交易编号
+     * @return 是否成功
+     */
+    Boolean updateReciveLater(String tid);
+
+    /**
+     * 买家确认收货接口
+     *
+     * https://www.youzanyun.com/apilist/detail/group_buyer/buyer_trade/youzan.trade.confirm.receive.update
+     *
+     * @param tid 交易编号
+     * @return 是否成功
+     */
+    Boolean updateReciveConfirm(String tid);
+
+    // ======== 卖家 BEGIN ========
+
+    /**
      * 订单标星接口
      *
      * https://www.youzanyun.com/apilist/detail/group_trade/trade/youzan.trade.get
@@ -41,16 +73,6 @@ public interface TradeAPI {
      */
     YouzanTradeGetResult get(String tid, Boolean withChilds,
                              Integer subTradePageNo, Integer subTradePageSize, String[] fields);
-
-    /**
-     * 根据第三方的ua和user_id获取交易订单列表
-     *
-     * https://open.youzan.com/api/oauthentry/youzan.trades.sold.outer/3.0.0/get
-     *
-     * @param params 筛选参数。三方用户 user_id 必填
-     * @return 交易列表
-     */
-    YouzanTradesSoldOuterGetResult listByOutUserId(YouzanTradesSoldOuterGetParams params);
 
     /**
      * 查询卖家已卖出的交易列表
@@ -86,7 +108,7 @@ public interface TradeAPI {
     Boolean updateMemo(String tid, String memo, Integer star);
 
     /**
-     * 买家下单后未支付的情况下卖家关闭订单，在买家付款后该接口失效
+     * 【卖家使用】买家下单后未支付的情况下卖家关闭订单，在买家付款后该接口失效
      *
      * https://open.youzan.com/api/oauthentry/youzan.trade/3.0.0/close
      *
@@ -109,6 +131,16 @@ public interface TradeAPI {
      * @return 是否成功
      */
     Boolean updatePrice(String tid, Integer priceChange, Integer postFee, Boolean isAllowPreference);
+
+    /**
+     * 根据第三方的ua和user_id获取交易订单列表
+     *
+     * https://open.youzan.com/api/oauthentry/youzan.trades.sold.outer/3.0.0/get
+     *
+     * @param params 筛选参数。三方用户 user_id 必填
+     * @return 交易列表
+     */
+    YouzanTradesSoldOuterGetResult listByOutUserId(YouzanTradesSoldOuterGetParams params);
 
     // TODO 芋艿，获取电子卡券信息 https://www.youzanyun.com/apilist/detail/group_trade/trade/youzan.trade.virtualticket.get
 
