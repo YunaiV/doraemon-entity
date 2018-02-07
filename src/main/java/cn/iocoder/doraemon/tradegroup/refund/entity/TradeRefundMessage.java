@@ -8,9 +8,29 @@ import java.util.Date;
 public class TradeRefundMessage {
 
     /**
+     * 明细
+     */
+    public static class Detail {
+
+        /**
+         * 标题
+         */
+        private String title;
+        /**
+         * 内容
+         */
+        private String content;
+
+    }
+
+    /**
+     * 记录编号，唯一。
+     */
+    private Integer id;
+    /**
      * 退款编号 {@link TradeRefund#id}
      */
-    private String id;
+    private String refundId;
     /**
      * 店铺编号 {@link cn.iocoder.doraemon.shopgroup.shop.entity.Shop#id}
      */
@@ -25,13 +45,33 @@ public class TradeRefundMessage {
      */
     private Integer ownerRole;
     /**
-     * 信息
+     * 具体操作
+     *
+     * 例如：
+     *   250 - 同意退款给买家，本次维权结束
+     *   206 - 已退货,等待商家确认收货
+     *   205 - 已同意退款申请,等待买家退货
+     *   201 - 发起了退款申请,等待商家处理
      */
-    private String content;
+    private Integer op;
     /**
-     * 图片信息
+     * 操作前状态
      */
-    private String picURL;
+    private Integer beforeStatus;
+    /**
+     * 操作后状态
+     */
+    private String afterStatus;
+    /**
+     * 明细数组字符串
+     *
+     * JSON 格式，数组，每个元素为 {@link Detail}
+     */
+    private String details;
+    /**
+     * 图片地址数组字符串
+     */
+    private String picURLs;
     /**
      * 创建时间
      */

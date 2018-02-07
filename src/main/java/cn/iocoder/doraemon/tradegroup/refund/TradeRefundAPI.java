@@ -6,7 +6,7 @@ import com.youzan.open.sdk.gen.v3_0_0.model.*;
 import java.util.List;
 
 /**
- * TODO
+ * 退款维权 API
  */
 public interface TradeRefundAPI {
 
