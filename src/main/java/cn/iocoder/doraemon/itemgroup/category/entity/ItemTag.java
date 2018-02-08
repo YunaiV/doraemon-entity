@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.itemgroup.item.entity;
+package cn.iocoder.doraemon.itemgroup.category.entity;
 
 import cn.iocoder.doraemon.itemgroup.item.entity.vo.AbstractItemTemplateElementVO;
 

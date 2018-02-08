@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.itemgroup.item;
+package cn.iocoder.doraemon.itemgroup.category;
 
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanItemcategoriesTagAddResult;
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanItemcategoriesTaglistSearchResult;

@@ -41,8 +41,6 @@ public class ItemTemplate {
 
     }
 
-
-
     /**
      * 编号 —— 普通版（内置）
      */

@@ -89,12 +89,6 @@ public class Item {
      * 10：分销商品
      */
     private Integer goodsType;
-    /**
-     * todo 芋艿，
-     * 分组列表
-     */
-    private String tag_ids;
-    // TODO 芋艿，GroupOpenModel[] 分组
 
     // ========== 基本信息 END ==========
 
@@ -201,7 +195,10 @@ public class Item {
 
     // ========== 其他信息 END ==========
 
-
+    /**
+     * 商品快照编号 {@link cn.iocoder.doraemon.itemgroup.snapshot.entity.ItemSnapshot#id}
+     */
+    private String snapshotId;
     /**
      * 是否有预售
      */
@@ -210,6 +207,7 @@ public class Item {
      * 是否设置商品购买权限
      */
     private Boolean purchaseRightStatus;
+
 
 
     // TODO 跳转到其他网站购买

@@ -75,10 +75,12 @@ public class TradeOrder {
      * 交易明细中买家留言的数据结构 {@link cn.iocoder.doraemon.itemgroup.item.entity.Item#messages}
      */
     private String buyerMessages;
+    /**
+     * 商品快照编号 {@link cn.iocoder.doraemon.itemgroup.snapshot.entity.ItemSnapshot#id}
+     */
+    private String snapshotId;
 
     // ========= 商品信息 END =========
-
-    // TODO snapKey
 
     // ======= 物流信息 BEGIN =======
 
