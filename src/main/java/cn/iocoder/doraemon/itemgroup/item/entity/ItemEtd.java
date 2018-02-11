@@ -1,5 +1,7 @@
 package cn.iocoder.doraemon.itemgroup.item.entity;
 
+import java.util.Date;
+
 /**
  * Item 预售扩展信息
  */
@@ -21,11 +23,7 @@ public class ItemEtd {
     /**
      * 预计发货开始时间, 字符串格式的时间，格式如：2018-01-01
      */
-    private Integer etdstartTime;
-    /**
-     * 预计发货结束时间, 字符串格式的时间，格式如：2018-01-01
-     */
-    private Integer etdEndTime;
+    private Date etdStartDate;
     /**
      * 付款成功 后发货天数, 默认0
      */

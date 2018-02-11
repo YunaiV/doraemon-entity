@@ -128,7 +128,7 @@ public class Item {
      *
      * 商品没有优惠的情况下，划线价在商品详情会以划线形式显示。
      */
-    private Double originPrice;
+    private Integer originPrice;
     /**
      * 是否参加会员折扣。
      *
@@ -142,6 +142,9 @@ public class Item {
     // ========== 运费信息 BEGIN ==========
     /**
      * 运费类型
+     *
+     * 1-统一运费
+     * 2-运费模板
      */
     private Integer postType;
     /**
@@ -214,3 +217,4 @@ public class Item {
 
     // TODO 芋艿，ItemVirtualOpenModel
 }
+// TODO points_price

@@ -14,10 +14,10 @@ public class ItemFenxiao {
     /**
      * 供货店铺Id
      */
-    private Long supplierShopId;
+    private Integer supplierShopId;
     /**
      * 供货商品Id
      */
-    private Long supplierItemId;
+    private Integer supplierItemId;
 
 }
