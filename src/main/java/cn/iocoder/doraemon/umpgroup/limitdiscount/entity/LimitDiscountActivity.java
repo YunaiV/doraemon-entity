@@ -36,6 +36,10 @@ public class LimitDiscountActivity {
      */
     private Integer id;
     /**
+     * 店铺编号
+     */
+    private Integer shopId;
+    /**
      * 名称
      */
     private String name;

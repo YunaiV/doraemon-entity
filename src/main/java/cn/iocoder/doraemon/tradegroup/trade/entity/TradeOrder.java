@@ -135,13 +135,13 @@ public class TradeOrder {
 
     // ========= 优惠信息 BEGIN =========
 
-//    /**
-//     * 是否赠品
-//     *
-//     * true 赠品商品
-//     * false 普通商品
-//     */
-//    private Boolean isPresent;
+    /**
+     * 是否赠品
+     *
+     * true 赠品商品
+     * false 普通商品
+     */
+    private Boolean isPresent;
 //    /**
 //     * 交易明细中的优惠信息的数据结构
 //     */
