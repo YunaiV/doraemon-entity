@@ -1,4 +1,4 @@
-package cn.iocoder.doraemon.umpgroup.counpon.entity;
+package cn.iocoder.doraemon.umpgroup.coupon.entity;
 
 import java.util.Date;
 

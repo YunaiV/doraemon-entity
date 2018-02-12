@@ -1,7 +1,7 @@
-package cn.iocoder.doraemon.umpgroup.counpon;
+package cn.iocoder.doraemon.umpgroup.coupon;
 
-import cn.iocoder.doraemon.umpgroup.counpon.entity.Coupon;
-import cn.iocoder.doraemon.umpgroup.counpon.entity.CouponGroup;
+import cn.iocoder.doraemon.umpgroup.coupon.entity.Coupon;
+import cn.iocoder.doraemon.umpgroup.coupon.entity.CouponGroup;
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanUmpPromocardAddResult;
 import com.youzan.open.sdk.gen.v3_0_0.model.YouzanUmpPromocodeAddParams;
 
@@ -20,7 +20,7 @@ public interface CouponCardAPI {
      * https://www.youzanyun.com/apilist/detail/group_ump/coupon/youzan.ump.promocard.add
      *
      * @param params 优惠劵参数
-     * @return 优惠劵信息
+     * @return 优惠劵信息 {@link cn.iocoder.doraemon.umpgroup.coupon.entity.Coupon}
      */
     YouzanUmpPromocardAddResult.UmpPromotionCard add(YouzanUmpPromocodeAddParams params);
 
@@ -34,7 +34,7 @@ public interface CouponCardAPI {
      * @param openUserId 【三选一】三方用户ID mobile/fans_id/open_user_id 三选一传入
      * @param mobile 【三选一】手机号，如果没有则写 0 mobile/fans_id/open_user_id 三选一传入
      * @param status 状态。VALID 有效（未使用） USED 已使用 INVALID 已失效
-     * @return 优惠劵列表
+     * @return 优惠劵列表 {@link cn.iocoder.doraemon.umpgroup.coupon.entity.Coupon}
      */
     List<Coupon> searchByBuyer(Integer fansType, Integer fansId, String openUserId, String mobile, String status);
 
@@ -44,7 +44,7 @@ public interface CouponCardAPI {
      * https://www.youzanyun.com/apilist/detail/group_ump/coupon/youzan.ump.promocard.detail.get
      *
      * @param id 优惠劵编号
-     * @return 优惠劵
+     * @return 优惠劵 {@link cn.iocoder.doraemon.umpgroup.coupon.entity.Coupon}
      */
     Coupon get(Integer id);
 
