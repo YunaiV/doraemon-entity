@@ -94,5 +94,12 @@ public class PackageBuyActivity {
      * JSON 格式，数组，每个元素为 {@link ItemVO}
      */
     private String items;
+    /**
+     * 优惠价格展示
+     *
+     * false-买家浏览商品详情页时，不能看到套餐优惠价格
+     * true-买家浏览商品详情页时，可以看到套餐优惠价格
+     */
+    private Boolean isShowPreference;
 
 }
